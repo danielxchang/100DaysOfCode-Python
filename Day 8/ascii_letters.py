@@ -1,0 +1,1 @@
+letters = [chr(num) for num in range(97, 123)]
