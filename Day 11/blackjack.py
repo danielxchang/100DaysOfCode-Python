@@ -33,10 +33,11 @@ def add_or_pass():
         else:
             return ans
 
-def print_result(player, dealer):
+def update_dealer(dealer):
     while 0 < score(dealer) < 17:
         dealer.append(hit())
 
+def print_result(player, dealer):
     p_score = score(player)
     d_score = score(dealer)
     print(f"\n\tYour final hand: {player}, final score: {p_score}")
@@ -66,6 +67,7 @@ def display_round(player, dealer, last=False):
         print(f"\tComputer's first card: {dealer[0]}")
         return add_or_pass()
     else:
+        update_dealer(dealer)
         print_result(player, dealer)
 
 def play_game():
