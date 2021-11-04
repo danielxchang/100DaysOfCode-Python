@@ -1,0 +1,2 @@
+easy,medium,hard,insane
+4,46,1,31
