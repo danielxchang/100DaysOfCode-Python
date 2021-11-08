@@ -1,5 +1,7 @@
 from tkinter import *
 import time
+import os
+from twilio.rest import Client
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -13,6 +15,9 @@ LONG_BREAK_MIN = 15
 CHECKMARK = "✓"
 reps = 0
 timer = None
+account_sid = 'AC57a33e32f8abccc7ecee66067a26a29f'
+auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
+PHONE_NUMBER = os.environ.get("PHONE_NUMBER")
 
 
 # ---------------------------- TIMER RESET ------------------------------- # 
@@ -48,6 +53,7 @@ def countdown(count):
         change_background("stop")
         if (reps - 1) % 2 == 0:
             update_checkmarks((reps - 1) // 2 + 1)
+        send_text_reminder()
         raise_above_all()
     else:
         remaining = format_time(count)
@@ -62,6 +68,15 @@ def refresh_screen():
     timer_label.config(text="Timer")
     canvas.itemconfig(time_id, text="00:00")
     update_checkmarks(0)
+
+
+def send_text_reminder():
+    client = Client(account_sid, auth_token)
+    client.messages.create(
+        messaging_service_sid='MGdbdbce2db415f5108c04c169fd828d27',
+        body="TIME IS UP",
+        to=PHONE_NUMBER
+    )
 
 
 def raise_above_all():
