@@ -4,7 +4,7 @@ import password_generator
 import pyperclip
 import json
 
-DEFAULT_EMAIL = "daniel.changk@gmail.com"
+DEFAULT_EMAIL = "test.com"
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
