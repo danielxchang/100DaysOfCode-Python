@@ -3,6 +3,9 @@ import datetime as dt
 import random
 import smtplib
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 NUM_TEMPLATES = 3
 GMAIL_SMTP = "smtp.gmail.com"

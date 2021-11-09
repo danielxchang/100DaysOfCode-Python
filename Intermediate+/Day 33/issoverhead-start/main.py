@@ -3,6 +3,9 @@ from datetime import datetime
 import smtplib
 import time
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 MY_LAT = 3.150661  # Your latitude
 MY_LONG = -96.825081  # Your longitude
