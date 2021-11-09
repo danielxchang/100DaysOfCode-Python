@@ -1,9 +1,12 @@
 import requests
 import datetime as dt
 import pandas
+import os
+from dotenv import load_dotenv
 
-USERNAME = "danielchang"
-TOKEN = "jdi398dhwkf873gdfk378"
+load_dotenv()
+USERNAME = os.environ['PIXELA_USERNAME']
+TOKEN = os.environ['PIXELA_TOKEN']
 CSV_FILE = "graphs.csv"
 headers = {
     "X-USER-TOKEN": TOKEN

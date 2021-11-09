@@ -2,6 +2,9 @@ from tkinter import *
 import time
 import os
 from twilio.rest import Client
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -16,9 +19,8 @@ CHECKMARK = "✓"
 reps = 0
 timer = None
 account_sid = 'AC57a33e32f8abccc7ecee66067a26a29f'
-auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
+AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
 PHONE_NUMBER = os.environ.get("PHONE_NUMBER")
-
 
 # ---------------------------- TIMER RESET ------------------------------- # 
 def reset_clock():
@@ -71,7 +73,7 @@ def refresh_screen():
 
 
 def send_text_reminder():
-    client = Client(account_sid, auth_token)
+    client = Client(account_sid, AUTH_TOKEN)
     client.messages.create(
         messaging_service_sid='MGdbdbce2db415f5108c04c169fd828d27',
         body="TIME IS UP",

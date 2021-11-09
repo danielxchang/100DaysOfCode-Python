@@ -3,8 +3,12 @@ from tkinter import messagebox
 import password_generator
 import pyperclip
 import json
+import os
+from dotenv import load_dotenv
 
-DEFAULT_EMAIL = "test.com"
+load_dotenv()
+
+DEFAULT_EMAIL = os.environ.get("EMAIL")
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #

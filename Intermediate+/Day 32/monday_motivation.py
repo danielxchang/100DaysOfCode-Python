@@ -2,6 +2,9 @@ import smtplib
 import random
 import datetime as dt
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 MONDAY = 0
 SUNDAY = 6
