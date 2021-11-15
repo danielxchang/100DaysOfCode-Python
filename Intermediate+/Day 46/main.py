@@ -1,12 +1,10 @@
 import datetime as dt
 import requests
 from bs4 import BeautifulSoup
-from pprint import pprint
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import os
 from dotenv import load_dotenv
-
 
 load_dotenv()
 
