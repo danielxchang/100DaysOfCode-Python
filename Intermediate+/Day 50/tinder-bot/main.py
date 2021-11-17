@@ -54,12 +54,18 @@ def tinder_like_bot():
     for _ in range(100):
         try:
             buttons = driver.find_elements("css selector", '.recsCardboard__cards button')
-            like = buttons[-4]
+            like = buttons[-2]
             like.click()
         except ElementClickInterceptedException:
-            pop_up_buttons = driver.find_elements("css selector", 'body div div div button')
-            pop_up_buttons[-1].click()
-            print("MATCH!")
+            try:
+                pop_up_buttons = driver.find_elements("css selector", 'body div div div button')
+                pop_up_buttons[-1].click()
+            except ElementClickInterceptedException:
+                match_screen = driver.find_elements("css selector", 'body div[2] div div div button')
+                match_screen[-1].click()
+            finally:
+                print("MATCH!")
+
         finally:
             sleep(3)
 
