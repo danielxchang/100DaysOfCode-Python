@@ -21,7 +21,7 @@ def login_to_tinder():
     driver.find_element("link text", "Log in").click()
     sleep(2)
 
-    fb_login = driver.find_element("xpath", '//*[@id="u1408193709"]/div/div/div[1]/div/div[3]/span/div[2]/button')
+    fb_login = driver.find_element("xpath", '/html/body/div[2]/div/div/div[1]/div/div[3]/span/div[2]/button')
     fb_login.click()
     sleep(1)
 
