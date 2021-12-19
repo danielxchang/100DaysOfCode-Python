@@ -1,0 +1,31 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Cafe{% endblock %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="container" id="cafe-image-container">
+        <a class="btn btn-warning btn-md" id="cafe-home-btn" href="{{ url_for('home') }}" role="button">Return to home page</a>
+        <a href="{{ cafe.map_url }}" target="_blank"><h1>Cafe {{ cafe.name }}</h1></a>
+
+        <img id="cafe-image" src="{{ cafe.img_url }}">
+      <table class="table" id="cafe-table">
+          <tbody>
+            {% for i, data in enumerate(list(cafe.values())[4:]): %}
+            <tr>
+                <th scope="row">{{ column_names[i] }}</th>
+                {% if 2 <= i <= 5: %}
+                    <td>{{ "Yes" if data else "No" }}</td>
+                {% else %}
+                    <td>{{ data }}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+        <a class="btn btn-warning btn-md" href="{{ url_for('delete', cafe_id=cafe.id) }}" role="button">Delete Cafe</a>
+    </div>
+
+{% endblock %}
