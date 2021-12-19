@@ -1,0 +1,72 @@
+body {
+    padding-top: 50px;
+}
+
+footer {
+    margin: 2em 3em;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.container-fluid {
+    justify-content: space-between;
+}
+
+#task_description {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    font-size: 1.75em;
+    margin-top: 0;
+}
+
+#list_title {
+    background: transparent;
+    border: none;
+    font-size: 2em;
+    overflow-wrap: break-word;
+}
+
+.nav-logo {
+    margin-right: 0.5rem;
+}
+
+.isDisabled {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    position: absolute;
+    right: 1em;
+    opacity: 0.5;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+}
+
+.home-title {
+    font-family: 'Bakbak One';
+    margin: 1em auto;
+    color: #0D6EFD;
+}
+
+.congrats {
+    font-family: 'Bakbak One';
+    margin-top: 1em;
+    color: #0D6EFD;
+}
+
+.home-btn {
+    margin-bottom: 3em;
+}
+
+.enter-btn {
+    visibility: hidden;
+}

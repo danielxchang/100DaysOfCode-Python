@@ -1,0 +1,52 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Cafes{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>All Cafes</h1>
+	  <table class="table">
+          <!-- This is where you will write the code to render a Bootstrap 
+          Table that contains all the information from the 
+          cafe-data.csv file. -->
+          <thead>
+            <tr>
+                {% for header in column_names: %}
+                   <th scope="col">{{ header }}</th>
+                {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for cafe in cafes: %}
+            <tr>
+                <th scope="row"><a href="{{ url_for('show_cafe', cafe_id=cafe['id']) }}" target="_blank">{{ cafe['name'] }}</a></th>
+                <td><img src="{{ cafe['img_url'] }}" height="200", width="250"></td>
+                <td><a href="{{ cafe['map_url'] }}" target="_blank">Maps Link</a></td>
+                {% for data in list(cafe.values())[4:6]: %}
+                   <td>{{ data }}</td>
+                {% endfor %}
+                {% for data in list(cafe.values())[6:-1]: %}
+                   <td>{{ "Yes" if data else "No" }}</td>
+                {% endfor %}
+                <td>{{ cafe['coffee_price'] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+  	  </table>
+
+      <p><a class="btn btn-warning btn-md" href="{{ url_for('home') }}" role="button">Return to home page</a></p>
+      <br>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
